@@ -11,7 +11,12 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e0
 h1{font-size:18px;font-weight:500;margin-bottom:8px}
 p.sub{font-size:13px;color:#888;margin-bottom:32px}
 .section{margin-bottom:28px}
-.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#3b82f6;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#3b82f6}
+.section-speed{font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px}
+.speed-fast{color:#22c55e;background:#0a1f0a}
+.speed-mid{color:#eab308;background:#1a1700}
+.speed-slow{color:#f97316;background:#1a0f00}
 .section-meta{font-size:10px;color:#555;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #1a1a1a}
 .section-meta a{color:#444;text-decoration:none}
 .section-meta a:hover{color:#666}
@@ -27,6 +32,14 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 .script{margin-top:32px;padding:16px;background:#141414;border:1px solid #222;border-radius:12px}
 .script h2{font-size:14px;font-weight:500;margin-bottom:8px;color:#888}
 .script p{font-size:13px;line-height:1.6;color:#999}
+.bench{margin-top:24px;padding:16px;background:#141414;border:1px solid #222;border-radius:12px}
+.bench h2{font-size:14px;font-weight:500;margin-bottom:12px;color:#888}
+.bench-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.bench-name{font-size:12px;font-weight:500;width:64px;flex-shrink:0}
+.bench-bar-bg{flex:1;height:6px;background:#1a1a1a;border-radius:3px;overflow:hidden}
+.bench-bar{height:100%;border-radius:3px}
+.bench-time{font-size:11px;color:#777;width:56px;text-align:right;flex-shrink:0}
+.bench-note{font-size:10px;color:#555;margin-top:8px;line-height:1.4}
 .info{margin-top:24px;padding:12px 16px;background:#0d1117;border:1px solid #1a1a1a;border-radius:10px}
 .info p{font-size:11px;color:#555;line-height:1.6}
 .info a{color:#3b82f6;text-decoration:none}
@@ -38,49 +51,11 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 <p class="sub">EP000 intro — pick the voice for Jake's Daily Build</p>
 
 <div class="section">
-<div class="section-label">Kokoro</div>
-<div class="section-meta">82M params, Apache 2.0, runs on CPU — <a href="https://github.com/hexgrad/kokoro">github.com/hexgrad/kokoro</a></div>
-
-<div class="voice">
-<div class="voice-header">
-<span class="voice-name">Michael</span>
-<span class="voice-tag">American Male</span>
+<div class="section-header">
+<span class="section-label">Edge TTS</span>
+<span class="section-speed speed-fast">506ms — fastest</span>
 </div>
-<div class="voice-desc">am_michael — natural male voice</div>
-<audio controls preload="none" src="kokoro-michael.mp3"></audio>
-</div>
-
-<div class="voice">
-<div class="voice-header">
-<span class="voice-name">Adam</span>
-<span class="voice-tag">American Male</span>
-</div>
-<div class="voice-desc">am_adam — deeper male voice</div>
-<audio controls preload="none" src="kokoro-am_adam.mp3"></audio>
-</div>
-
-<div class="voice">
-<div class="voice-header">
-<span class="voice-name">Heart</span>
-<span class="voice-tag">American Female</span>
-</div>
-<div class="voice-desc">af_heart — expressive female voice</div>
-<audio controls preload="none" src="kokoro-af_heart.mp3"></audio>
-</div>
-
-<div class="voice">
-<div class="voice-header">
-<span class="voice-name">Emma</span>
-<span class="voice-tag">British Female</span>
-</div>
-<div class="voice-desc">bf_emma — British accent female</div>
-<audio controls preload="none" src="kokoro-bf_emma.mp3"></audio>
-</div>
-</div>
-
-<div class="section">
-<div class="section-label">Edge TTS</div>
-<div class="section-meta">Microsoft Neural TTS, free, no API key, unlimited — <a href="https://github.com/rany2/edge-tts">github.com/rany2/edge-tts</a></div>
+<div class="section-meta">Microsoft Neural TTS, free, no API key, needs internet — <a href="https://github.com/rany2/edge-tts">github</a></div>
 
 <div class="voice">
 <div class="voice-header">
@@ -129,8 +104,11 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 </div>
 
 <div class="section">
-<div class="section-label">Piper</div>
-<div class="section-meta">Lightweight ONNX, runs on CPU, fully offline — <a href="https://github.com/rhasspy/piper">github.com/rhasspy/piper</a></div>
+<div class="section-header">
+<span class="section-label">Piper</span>
+<span class="section-speed speed-mid">2.6s — mid</span>
+</div>
+<div class="section-meta">Lightweight ONNX, fully offline, runs on CPU — <a href="https://github.com/rhasspy/piper">github</a></div>
 
 <div class="voice">
 <div class="voice-header">
@@ -151,13 +129,77 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 </div>
 </div>
 
+<div class="section">
+<div class="section-header">
+<span class="section-label">Kokoro</span>
+<span class="section-speed speed-slow">27.7s — slowest, best quality</span>
+</div>
+<div class="section-meta">82M params, Apache 2.0, local CPU (no GPU on this machine) — <a href="https://github.com/hexgrad/kokoro">github</a></div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Michael</span>
+<span class="voice-tag">American Male</span>
+</div>
+<div class="voice-desc">am_michael — natural male voice</div>
+<audio controls preload="none" src="kokoro-michael.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Adam</span>
+<span class="voice-tag">American Male</span>
+</div>
+<div class="voice-desc">am_adam — deeper male voice</div>
+<audio controls preload="none" src="kokoro-am_adam.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Heart</span>
+<span class="voice-tag">American Female</span>
+</div>
+<div class="voice-desc">af_heart — expressive female voice</div>
+<audio controls preload="none" src="kokoro-af_heart.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Emma</span>
+<span class="voice-tag">British Female</span>
+</div>
+<div class="voice-desc">bf_emma — British accent female</div>
+<audio controls preload="none" src="kokoro-bf_emma.mp3"></audio>
+</div>
+</div>
+
+<div class="bench">
+<h2>Speed benchmark</h2>
+<div class="bench-row">
+<span class="bench-name">Edge TTS</span>
+<div class="bench-bar-bg"><div class="bench-bar" style="width:2%;background:#22c55e"></div></div>
+<span class="bench-time">0.5s</span>
+</div>
+<div class="bench-row">
+<span class="bench-name">Piper</span>
+<div class="bench-bar-bg"><div class="bench-bar" style="width:9%;background:#eab308"></div></div>
+<span class="bench-time">2.6s</span>
+</div>
+<div class="bench-row">
+<span class="bench-name">Kokoro</span>
+<div class="bench-bar-bg"><div class="bench-bar" style="width:100%;background:#f97316"></div></div>
+<span class="bench-time">27.7s</span>
+</div>
+<div class="bench-note">Same ~15s audio clip. Kokoro on CPU only (no GPU). With GPU, Kokoro would be near real-time.</div>
+</div>
+
 <div class="script">
 <h2>Script preview</h2>
 <p>"I'm Jake. And I need to explain what that means, because it's not obvious. Before we go any further: every word you hear is written, narrated, and produced by a personal AI agent running on a local server. No human voices. No editors."</p>
 </div>
 
 <div class="info">
-<p>All samples generated locally, zero cost. Kokoro (82M, Apache 2.0) runs on CPU via PyTorch. Edge TTS uses Microsoft's free neural voices via API. Piper (ONNX) runs fully offline on CPU. Pick a voice and the full EP000 gets generated with it.</p>
+<p>All samples generated locally, zero cost. Ordered fastest to slowest. Edge TTS needs internet but is instant. Piper is fully offline and fast. Kokoro sounds best but is slow without GPU. Pick a voice and the full EP000 gets generated with it.</p>
 </div>
 </div>
 
