@@ -10,8 +10,11 @@ body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e0
 .container{max-width:480px;width:100%;padding:24px}
 h1{font-size:18px;font-weight:500;margin-bottom:8px}
 p.sub{font-size:13px;color:#888;margin-bottom:32px}
-.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#3b82f6;margin-bottom:12px;margin-top:24px;padding-bottom:8px;border-bottom:1px solid #1a1a1a;display:flex;align-items:center;gap:8px}
-.section-label .engine{font-size:10px;font-weight:400;color:#555;text-transform:none;letter-spacing:0}
+.section{margin-bottom:28px}
+.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#3b82f6;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.section-meta{font-size:10px;color:#555;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #1a1a1a}
+.section-meta a{color:#444;text-decoration:none}
+.section-meta a:hover{color:#666}
 .voice{background:#141414;border:1px solid #222;border-radius:12px;padding:16px;margin-bottom:12px;transition:border-color .2s}
 .voice:hover{border-color:#444}
 .voice.playing{border-color:#3b82f6}
@@ -25,7 +28,7 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 .script h2{font-size:14px;font-weight:500;margin-bottom:8px;color:#888}
 .script p{font-size:13px;line-height:1.6;color:#999}
 .info{margin-top:24px;padding:12px 16px;background:#0d1117;border:1px solid #1a1a1a;border-radius:10px}
-.info p{font-size:11px;color:#555;line-height:1.5}
+.info p{font-size:11px;color:#555;line-height:1.6}
 .info a{color:#3b82f6;text-decoration:none}
 </style>
 </head>
@@ -34,53 +37,118 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 <h1>Jake Voice Picker</h1>
 <p class="sub">EP000 intro — pick the voice for Jake's Daily Build</p>
 
-<div class="section-label">Conversation <span class="engine">edge-tts (Microsoft Neural TTS) — free, no API key</span></div>
+<div class="section">
+<div class="section-label">Kokoro</div>
+<div class="section-meta">82M params, Apache 2.0, runs on CPU — <a href="https://github.com/hexgrad/kokoro">github.com/hexgrad/kokoro</a></div>
 
-<div class="voice" id="v-andrew">
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Michael</span>
+<span class="voice-tag">American Male</span>
+</div>
+<div class="voice-desc">am_michael — natural male voice</div>
+<audio controls preload="none" src="kokoro-michael.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Adam</span>
+<span class="voice-tag">American Male</span>
+</div>
+<div class="voice-desc">am_adam — deeper male voice</div>
+<audio controls preload="none" src="kokoro-am_adam.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Heart</span>
+<span class="voice-tag">American Female</span>
+</div>
+<div class="voice-desc">af_heart — expressive female voice</div>
+<audio controls preload="none" src="kokoro-af_heart.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Emma</span>
+<span class="voice-tag">British Female</span>
+</div>
+<div class="voice-desc">bf_emma — British accent female</div>
+<audio controls preload="none" src="kokoro-bf_emma.mp3"></audio>
+</div>
+</div>
+
+<div class="section">
+<div class="section-label">Edge TTS</div>
+<div class="section-meta">Microsoft Neural TTS, free, no API key, unlimited — <a href="https://github.com/rany2/edge-tts">github.com/rany2/edge-tts</a></div>
+
+<div class="voice">
 <div class="voice-header">
 <span class="voice-name">Andrew</span>
 <span class="voice-tag">Warm, Confident</span>
 </div>
-<div class="voice-desc">Authentic, honest — natural conversation tone</div>
+<div class="voice-desc">en-US-AndrewNeural — conversation style</div>
 <audio controls preload="none" src="andrew.mp3"></audio>
 </div>
 
-<div class="voice" id="v-brian">
+<div class="voice">
 <div class="voice-header">
 <span class="voice-name">Brian</span>
 <span class="voice-tag">Casual, Sincere</span>
 </div>
-<div class="voice-desc">Approachable — laid-back casual delivery</div>
+<div class="voice-desc">en-US-BrianNeural — laid-back casual</div>
 <audio controls preload="none" src="brian.mp3"></audio>
 </div>
 
-<div class="section-label">Narration <span class="engine">edge-tts (Microsoft Neural TTS) — free, no API key</span></div>
-
-<div class="voice" id="v-christopher">
+<div class="voice">
 <div class="voice-header">
 <span class="voice-name">Christopher</span>
 <span class="voice-tag">Reliable, Authority</span>
 </div>
-<div class="voice-desc">Authoritative narrator — documentary feel</div>
+<div class="voice-desc">en-US-ChristopherNeural — documentary narrator</div>
 <audio controls preload="none" src="christopher.mp3"></audio>
 </div>
 
-<div class="voice" id="v-eric">
+<div class="voice">
 <div class="voice-header">
 <span class="voice-name">Eric</span>
 <span class="voice-tag">Rational</span>
 </div>
-<div class="voice-desc">Measured, analytical — rational delivery</div>
+<div class="voice-desc">en-US-EricNeural — measured, analytical</div>
 <audio controls preload="none" src="eric.mp3"></audio>
 </div>
 
-<div class="voice" id="v-guy">
+<div class="voice">
 <div class="voice-header">
 <span class="voice-name">Guy</span>
 <span class="voice-tag">Passion</span>
 </div>
-<div class="voice-desc">Energetic narrator — passionate intensity</div>
+<div class="voice-desc">en-US-GuyNeural — energetic narrator</div>
 <audio controls preload="none" src="guy.mp3"></audio>
+</div>
+</div>
+
+<div class="section">
+<div class="section-label">Piper</div>
+<div class="section-meta">Lightweight ONNX, runs on CPU, fully offline — <a href="https://github.com/rhasspy/piper">github.com/rhasspy/piper</a></div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Lessac</span>
+<span class="voice-tag">US English</span>
+</div>
+<div class="voice-desc">en_US-lessac-medium — general purpose narrator</div>
+<audio controls preload="none" src="piper-lessac.mp3"></audio>
+</div>
+
+<div class="voice">
+<div class="voice-header">
+<span class="voice-name">Joe</span>
+<span class="voice-tag">US English</span>
+</div>
+<div class="voice-desc">en_US-joe-medium — male conversational</div>
+<audio controls preload="none" src="piper-joe.mp3"></audio>
+</div>
 </div>
 
 <div class="script">
@@ -89,7 +157,7 @@ audio::-webkit-media-controls-panel{background:#1a1a1a}
 </div>
 
 <div class="info">
-<p>All samples generated with <a href="https://github.com/rany2/edge-tts">edge-tts</a> — Microsoft's Neural TTS engine. Free, unlimited, no API key required. Runs locally via Python.</p>
+<p>All samples generated locally, zero cost. Kokoro (82M, Apache 2.0) runs on CPU via PyTorch. Edge TTS uses Microsoft's free neural voices via API. Piper (ONNX) runs fully offline on CPU. Pick a voice and the full EP000 gets generated with it.</p>
 </div>
 </div>
 
